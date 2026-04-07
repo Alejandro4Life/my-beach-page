@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My first HTML page</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap');
+
+            .new_intro{
+                color: blue;
+                font-size: 20px;
+            }
+            body {
+                background-color: #fff8f0;
+                font-family: 'Lato', sans-serif;
+                color: #333;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 24px;
+            }            
+            h1 {
+                font-family: 'Playfair Display', serif;
+                text-align: center;
+                font-size: 48px;
+                color: #e07b39;
+                margin-bottom: 4px;
+            }        
+            h2 {
+                text-align: center;
+                color: #888;
+                font-weight: 400;
+                margin-bottom: 24px;
+            }
+            img {
+                width: 100%;
+                border-radius: 12px;
+                margin: 16px 0;
+            }
+            a {
+                display: block;
+                margin-bottom: 16px;
+                color: #e07b39;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 16px 0;
+            }
+            th {
+                background-color: #e07b39;
+                color: white;
+                padding: 10px;
+                text-align: center;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                text-align: center;
+            }
+            tr:nth-child(even) {
+                background-color: #fde8d8;
+            }
+            form {
+                background-color: white;
+                padding: 24px;
+                border-radius: 12px;
+                border: 1px solid #ddd;
+                margin-top: 24px;
+            }
+            label {
+                display: block;
+                font-weight: 700;
+                margin-bottom: 4px;
+                margin-top: 12px;
+            }
+            input, textarea {
+                width: 80%;
+                padding: 8px 12px;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                font-family: 'Lato', sans-serif;
+                font-size: 14px;
+            }
+            button {
+                margin-top: 16px;
+                background-color: #e07b39;
+                color: white;
+                border: none;
+                padding: 10px 24px;
+                border-radius: 6px;
+                font-size: 15px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #c4622a;
+            }
+            .card-row {
+                display: flex;
+                gap: 16px;
+                margin: 24px 0;
+            }
+            .card {
+                flex: 1;
+                background-color: white;
+                border-radius: 12px;
+                border: 1px solid #ddd;
+                padding: 16px;
+            }
+            .card h3 {
+                color: #e07b39;
+                margin-bottom: 8px;
+            }
+            .card.selected{
+                border: 3px solid #e07b39;
+                box-shadow: 0 4px 12px rgba(224, 123, 57, 0.3);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Sunny Day</h1>
+        <h2>Crowded Beaches</h2>
+        <h3>Strongly recommend solar protector</h3>
+        <p>How've you been friends</p>
+        <p>Big hug</p>
+        <a href="https://portal.munichorrillos.gob.pe/cultura-y-turismo/playas">Visit Agua Dulce</a>
+        <img src="https://portal.munichorrillos.gob.pe/sites/default/files/styles/articulo_avatar_1024_x_500_/public/portfolio-images/playa-agua-dulce-01.jpg?itok=XvNPYQrH" alt="A Beutiful Beach">
+        <div class="card-row">
+            <div class="card" onclick="selectCard(this)">
+                <h3>You can go with ...</h3>
+                <ul>
+                    <li>perros</li>
+                    <li>gatos</li>
+                    <li>comida</li>
+                    <li>arena</li>
+                    <li>amigos</li>
+                </ul>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <h3>You can do ...</h3>
+                <ol>
+                    <li>find a place to stay</li>
+                    <li>Enjoy the sight</li>
+                    <li>swim</li>
+                    <li>sleep</li>
+                </ol>
+            </div>
+        </div>
+        <h4>Ranking of the best Beaches by Alejandro</h4>
+        <table id="beachTable">
+            <tr>
+                <th>Name</th>
+                <th>Ditrict</th>
+                <th>Ranking</th>
+            </tr>
+            <tr>
+                <td>Punta Negra</td>
+                <td>Lurin</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Punta Hermosa</td>
+                <td>Asia</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>San Bartolo</td>
+                <td>Asia</td>
+                <td>3</td>
+            </tr>
+        </table>
+        <h3>Send us your favorites ones to add to our table</h3>
+        <form>
+            <label>Name of your favorite Beach</label>
+            <input type="text" id="beachName"><br><br>
+
+            <label>District of your favorite Beach</label>
+            <input type="text" id="beachDistrict"><br><br>
+
+            <label>Gives us a small anecdote</label>
+            <textarea rows="4"></textarea><br><br>
+
+            <label>Email</label>
+            <input type="email"><br><br>
+
+            <button type="button" onclick="addBeach()">Send It :D</button>
+        </form>
+        <div class="card-row">
+            <div class="card" onclick="selectCard(this)">
+                <h3>Punta Negra</h3>
+                <p>Best waves in Lima</p>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <h3>Punta Hermosa</h3>
+                <p>Great for surfing</p>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <h3>San Bartolo</h3>
+                <p>Perfect for families</p>
+            </div>
+        </div>
+        <script>
+            function addBeach(){
+                //1.Get the values from the inputs
+                let name =document.getElementById("beachName").value;
+                let district =document.getElementById("beachDistrict").value;
+
+                if(name === "" || district === ""){
+                    alert("Please fill in the beach name and the district name")
+                    return;
+                }
+
+                //2. Find the table
+                let table = document.getElementById("beachTable");
+
+                //3.Add a new row with the data from input
+                let newrow = table.insertRow();
+                newrow.insertCell().textContent = name;
+                newrow.insertCell().textContent = district;
+                newrow.insertCell().textContent = "?";
+
+                //4. Cleaning the inputs
+                document.getElementById("beachName").value = "";
+                document.getElementById("beachDistrict").value = "";
+            }
+
+            function selectCard(card){
+                card.classList.toggle("selected");
+            }
+        </script>
+    </body>
+</html>
